@@ -28,7 +28,7 @@ public class MovieTicketKioskUserRequirements {
     public void setMovieTitle(String movieTitle){
         this.movieTitle=movieTitle;
     }
-    public void generateBookingCodeAndSeating(){
+    public void generateBookingCodeAndSeatingAndMemberDiscount(){
         int randomUserCode=(int)(Math.random()*900)+100;
         if (movieTitle.length()<=3){
             bookingCode=movieTitle+randomUserCode;
@@ -38,8 +38,15 @@ public class MovieTicketKioskUserRequirements {
         }
         seat[0]=(int)(Math.random()*10)+1;
         seat[1]=(int)(Math.random()*20)+1;
+        memberDiscount=Math.random()*10+5;
     }
     public String toString(){
-        
+        String finalReturnString="\n\n\nSTARLIGHT CINEMA MOVIE TICKET\n\n";
+        finalReturnString+="Booking Code: "+bookingCode;
+        finalReturnString+="\nCustomer: "+username+" ("+usernameInitials+")";
+        finalReturnString+="\nMovie: "+movieTitle;
+        finalReturnString+="\nSeat: Row "+seat[0]+" Seat "+seat[1]+"\n\n";
+        finalReturnString+=
+        return finalReturnString;
     }
 }
