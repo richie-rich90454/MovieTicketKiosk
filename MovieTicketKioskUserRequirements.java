@@ -46,6 +46,13 @@ public class MovieTicketKioskUserRequirements {
         finalReturnString+="\nCustomer: "+username+" ("+usernameInitials+")";
         finalReturnString+="\nMovie: "+movieTitle;
         finalReturnString+="\nSeat: Row "+seat[0]+" Seat "+seat[1]+"\n\n";
+        finalReturnString+="ITEM\tQTY\tPRICE\tTOTAL";
+        finalReturnString+="\nTicket\t"+ticketCount+"\t"+ticketPrice+"\t"+(ticketPrice*ticketCount);
+        finalReturnString+="\nPopcorn\t"+popcornCount+"\t"+popcornPrice+"\t"+(popcornCount*popcornPrice);
+        finalReturnString+="\nDrink\t"+popcornCount+"\t"+drinkPrice+"\t"+(drinkCount*drinkPrice);
+        double totalValue=(ticketPrice*ticketCount)+(popcornCount*popcornPrice)+(drinkCount*drinkPrice);
+        finalReturnString+="\n\nSubtotal\t"+totalValue;
+        totalValue-=totalValue*(memberDiscount/100);
         finalReturnString+=
         return finalReturnString;
     }
