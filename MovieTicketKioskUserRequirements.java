@@ -5,7 +5,7 @@ public class MovieTicketKioskUserRequirements {
     private String username;
     private String movieTitle;
     private String bookingCode;
-    private int[] seat;//index 0 denoting row while index 1 denotes seat number
+    private int[] seat=new int[2];//index 0 denoting row while index 1 denotes seat number
     public String usernameInitials;
     private final double ticketPrice=12.50;
     private final double popcornPrice=6.75;
@@ -38,7 +38,7 @@ public class MovieTicketKioskUserRequirements {
         }
         seat[0]=(int)(Math.random()*10)+1;
         seat[1]=(int)(Math.random()*20)+1;
-        memberDiscount=Math.random()*10+5;
+        memberDiscount=(int)(Math.random()*10)+5;
     }
     public String toString(){
         String finalReturnString="\n\n\nSTARLIGHT CINEMA MOVIE TICKET\n\n";
@@ -52,8 +52,14 @@ public class MovieTicketKioskUserRequirements {
         finalReturnString+="\nDrink\t"+popcornCount+"\t"+drinkPrice+"\t"+(drinkCount*drinkPrice);
         double totalValue=(ticketPrice*ticketCount)+(popcornCount*popcornPrice)+(drinkCount*drinkPrice);
         finalReturnString+="\n\nSubtotal\t"+totalValue;
-        totalValue-=totalValue*(memberDiscount/100);
-        finalReturnString+=
+        double memberDiscountValue=totalValue*(memberDiscount/100);
+        finalReturnString+="\nMember Discount ("+memberDiscountValue+"%)\t-"+memberDiscountValue;
+        totalValue-=memberDiscountValue;
+        double salesTaxValue=totalValue*(salesTaxPercentage/100);
+        finalReturnString+="\nTax ("+salesTaxPercentage+"%)\t"+salesTaxValue;
+        totalValue+=salesTaxValue;
+        finalReturnString+="\nTOTAL\t-"+totalValue;
+        finalReturnString+="\n\nThank you, "+usernameInitials+" - enjoy "+movieTitle+"!";
         return finalReturnString;
     }
 }
