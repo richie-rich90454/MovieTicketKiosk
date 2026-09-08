@@ -23,7 +23,7 @@ public class MovieTicketKioskUserRequirements {
     }
     public void setUsername(String username){
         this.username=username;
-        usernameInitials=username.substring(0, 1)+username.substring(username.indexOf(" ")+1, username.indexOf(" ")+2);
+        usernameInitials=(username.substring(0, 1)+username.substring(username.indexOf(" ")+1, username.indexOf(" ")+2)).toUpperCase();
     }
     public void setMovieTitle(String movieTitle){
         this.movieTitle=movieTitle;
@@ -31,14 +31,14 @@ public class MovieTicketKioskUserRequirements {
     public void generateBookingCodeAndSeatingAndMemberDiscount(){
         int randomUserCode=(int)(Math.random()*900)+100;
         if (movieTitle.length()<=3){
-            bookingCode=movieTitle+randomUserCode;
+            bookingCode=movieTitle.toUpperCase()+"-"+randomUserCode;
         }
         else{
-            bookingCode=movieTitle.substring(0, 4)+randomUserCode;
+            bookingCode=movieTitle.substring(0, 3).toUpperCase()+"-"+randomUserCode;
         }
         seat[0]=(int)(Math.random()*10+1);
         seat[1]=(int)(Math.random()*20+1);
-        memberDiscount=(int)(Math.random()*10)+5;
+        memberDiscount=(int)((Math.random()*10+5)*1000)/1000.0;
     }
     public String toString(){
         String finalReturnString="\n\n\nSTARLIGHT CINEMA MOVIE TICKET\n\n";
@@ -52,12 +52,13 @@ public class MovieTicketKioskUserRequirements {
         finalReturnString+="\nDrink\t"+popcornCount+"\t"+drinkPrice+"\t"+(drinkCount*drinkPrice);
         double totalValue=(ticketPrice*ticketCount)+(popcornCount*popcornPrice)+(drinkCount*drinkPrice);
         finalReturnString+="\n\nSubtotal\t"+totalValue;
-        double memberDiscountValue=totalValue*(memberDiscount/100);
+        double memberDiscountValue=(int)(totalValue*(memberDiscount/100)*1000)/1000.0;
         finalReturnString+="\nMember Discount ("+memberDiscount+"%)\t-"+memberDiscountValue;
         totalValue-=memberDiscountValue;
-        double salesTaxValue=totalValue*(salesTaxPercentage/100);
+        double salesTaxValue=(int)(totalValue*(salesTaxPercentage/100)*1000)/1000.0;
         finalReturnString+="\nTax ("+salesTaxPercentage+"%)\t"+salesTaxValue;
         totalValue+=salesTaxValue;
+        totalValue=((int)totalValue*1000)/1000.0;
         finalReturnString+="\nTOTAL\t"+totalValue;
         finalReturnString+="\n\nThank you, "+usernameInitials+" - enjoy "+movieTitle+"!";
         return finalReturnString;
