@@ -36,8 +36,8 @@ public class MovieTicketKioskUserRequirements {
         else{
             bookingCode=movieTitle.substring(0, 4)+randomUserCode;
         }
-        seat[0]=(int)(Math.random()*10)+1;
-        seat[1]=(int)(Math.random()*20)+1;
+        seat[0]=(int)(Math.random()*10+1);
+        seat[1]=(int)(Math.random()*20+1);
         memberDiscount=(int)(Math.random()*10)+5;
     }
     public String toString(){
@@ -53,12 +53,12 @@ public class MovieTicketKioskUserRequirements {
         double totalValue=(ticketPrice*ticketCount)+(popcornCount*popcornPrice)+(drinkCount*drinkPrice);
         finalReturnString+="\n\nSubtotal\t"+totalValue;
         double memberDiscountValue=totalValue*(memberDiscount/100);
-        finalReturnString+="\nMember Discount ("+memberDiscountValue+"%)\t-"+memberDiscountValue;
+        finalReturnString+="\nMember Discount ("+memberDiscount+"%)\t-"+memberDiscountValue;
         totalValue-=memberDiscountValue;
         double salesTaxValue=totalValue*(salesTaxPercentage/100);
         finalReturnString+="\nTax ("+salesTaxPercentage+"%)\t"+salesTaxValue;
         totalValue+=salesTaxValue;
-        finalReturnString+="\nTOTAL\t-"+totalValue;
+        finalReturnString+="\nTOTAL\t"+totalValue;
         finalReturnString+="\n\nThank you, "+usernameInitials+" - enjoy "+movieTitle+"!";
         return finalReturnString;
     }

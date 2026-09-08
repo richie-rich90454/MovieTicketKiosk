@@ -15,6 +15,7 @@ public class MovieTicketKiosk{
         userRequirements.setUsername(input.nextLine());
         System.out.print("\nWhat is the name of the movie: ");
         userRequirements.setMovieTitle(input.nextLine());
+        userRequirements.generateBookingCodeAndSeatingAndMemberDiscount();
         System.out.println(userRequirements);
     }
 }
