@@ -1,9 +1,11 @@
+import java.util.HashMap;
 import java.util.Scanner;
 public class MovieTicketKiosk{
     public static void main(String[] args){
         Scanner input=new Scanner(System.in);
         System.out.println("Welcome to the Starlight Cinema Kiosk!\n");
-        MovieTicketKioskUserRequirements userRequirements=new MovieTicketKioskUserRequirements();
+        HashMap<String, Integer> usedSeats=new HashMap<String, Integer>();
+        MovieTicketKioskUserRequirements userRequirements=new MovieTicketKioskUserRequirements(usedSeats);
         System.out.print("How many tickets do you want to purchase (it must be greater than 0; if the value is smaller than 0, it would be set as 0): ");
         userRequirements.setTicketCount(input.nextInt());
         System.out.print("How many popcorn bags do you want to purchase (it must be greater than 0; if the value is smaller than 0, it would be set as 0): ");
@@ -16,6 +18,9 @@ public class MovieTicketKiosk{
         System.out.print("What is the name of the movie: ");
         userRequirements.setMovieTitle(input.nextLine());
         userRequirements.generateBookingCodeAndSeatingAndMemberDiscount();
+        String currentSeat=(userRequirements.getSeat())[0]+", ";
+        currentSeat+=(userRequirements.getSeat())[1];
+        usedSeats.put(currentSeat, 1);
         System.out.println(userRequirements);
     }
 }

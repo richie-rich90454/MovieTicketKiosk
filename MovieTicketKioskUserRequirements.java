@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class MovieTicketKioskUserRequirements {
     private int ticketCount;
     private int popcornCount;
@@ -12,6 +14,7 @@ public class MovieTicketKioskUserRequirements {
     private final double drinkPrice=4.25;
     private final double salesTaxPercentage=8.25;
     private int memberDiscount;
+    private HashMap<String, Integer> usedSeats;
     public void setTicketCount(int ticketCount){
         this.ticketCount=ticketCount;
         if (ticketCount<=0){
@@ -48,6 +51,12 @@ public class MovieTicketKioskUserRequirements {
         seat[0]=(int)(Math.random()*10+1);
         seat[1]=(int)(Math.random()*20+1);
         memberDiscount=(int)(Math.random()*11)+5;
+    }
+    public int[] getSeat(){
+        return seat;
+    }
+    public MovieTicketKioskUserRequirements(HashMap<String, Integer> usedSeats){
+        this.usedSeats=usedSeats;
     }
     //String.format() reference from https://www.w3schools.com/java/ref_string_format.asp only used in order to ensure the strict requirement of two decimal places
     public String toString(){
