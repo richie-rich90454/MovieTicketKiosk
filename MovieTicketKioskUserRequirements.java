@@ -62,7 +62,7 @@ public class MovieTicketKioskUserRequirements {
         double drinkTotalPrice=((drinkCount*drinkPrice)*1000)/1000.0;
         finalReturnString+="\nTicket\t"+ticketCount+"\t$"+ticketPrice+"\t$"+ticketTotalPrice;
         finalReturnString+="\nPopcorn\t"+popcornCount+"\t$"+popcornPrice+"\t$"+popcornTotalPrice;
-        finalReturnString+="\nDrink\t"+popcornCount+"\t$"+drinkPrice+"\t$"+drinkTotalPrice;
+        finalReturnString+="\nDrink\t"+drinkCount+"\t$"+drinkPrice+"\t$"+drinkTotalPrice;
         double totalValue=((ticketTotalPrice+popcornTotalPrice+drinkTotalPrice)*1000)/1000.0;
         finalReturnString+="\n----------------------------------------------------";
         finalReturnString+="\nSubtotal\t$"+totalValue;
