@@ -61,7 +61,7 @@ public class MovieTicketKioskUserRequirements {
         double ticketTotalPrice=ticketPrice*ticketCount;
         double popcornTotalPrice=popcornCount*popcornPrice;
         double drinkTotalPrice=drinkCount*drinkPrice;
-        finalReturnString+="\nTicket\t"+ticketCount+"\t$"+ticketPrice+"\t$"+String.format("%.2f", ticketTotalPrice);
+        finalReturnString+="\nTicket\t"+ticketCount+"\t$"+String.format("%.2f", ticketPrice)+"\t$"+String.format("%.2f", ticketTotalPrice);
         finalReturnString+="\nPopcorn\t"+popcornCount+"\t$"+popcornPrice+"\t$"+String.format("%.2f", popcornTotalPrice);
         finalReturnString+="\nDrink\t"+drinkCount+"\t$"+drinkPrice+"\t$"+String.format("%.2f", drinkTotalPrice);
         double totalValue=ticketTotalPrice+popcornTotalPrice+drinkTotalPrice;
