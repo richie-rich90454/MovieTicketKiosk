@@ -49,6 +49,7 @@ public class MovieTicketKioskUserRequirements {
         seat[1]=(int)(Math.random()*20+1);
         memberDiscount=(int)(Math.random()*11)+5;
     }
+    //String.format() reference from https://www.w3schools.com/java/ref_string_format.asp only used in order to ensure the strict requirement of two decimal places
     public String toString(){
         String finalReturnString="\n====================================================\nSTARLIGHT CINEMA MOVIE TICKET\n====================================================\n";
         finalReturnString+="Booking Code: "+bookingCode;
@@ -57,23 +58,23 @@ public class MovieTicketKioskUserRequirements {
         finalReturnString+="\nSeat: Row "+seat[0]+" Seat "+seat[1]+"";
         finalReturnString+="\n====================================================\n";
         finalReturnString+="ITEM\tQTY\tPRICE\tTOTAL";
-        double ticketTotalPrice=((ticketPrice*ticketCount)*1000)/1000.0;
-        double popcornTotalPrice=((popcornCount*popcornPrice)*1000)/1000.0;
-        double drinkTotalPrice=((drinkCount*drinkPrice)*1000)/1000.0;
-        finalReturnString+="\nTicket\t"+ticketCount+"\t$"+ticketPrice+"\t$"+ticketTotalPrice;
-        finalReturnString+="\nPopcorn\t"+popcornCount+"\t$"+popcornPrice+"\t$"+popcornTotalPrice;
-        finalReturnString+="\nDrink\t"+drinkCount+"\t$"+drinkPrice+"\t$"+drinkTotalPrice;
-        double totalValue=((ticketTotalPrice+popcornTotalPrice+drinkTotalPrice)*1000)/1000.0;
+        double ticketTotalPrice=ticketPrice*ticketCount;
+        double popcornTotalPrice=popcornCount*popcornPrice;
+        double drinkTotalPrice=drinkCount*drinkPrice;
+        finalReturnString+="\nTicket\t"+ticketCount+"\t$"+ticketPrice+"\t$"+String.format("%.2f", ticketTotalPrice);
+        finalReturnString+="\nPopcorn\t"+popcornCount+"\t$"+popcornPrice+"\t$"+String.format("%.2f", popcornTotalPrice);
+        finalReturnString+="\nDrink\t"+drinkCount+"\t$"+drinkPrice+"\t$"+String.format("%.2f", drinkTotalPrice);
+        double totalValue=ticketTotalPrice+popcornTotalPrice+drinkTotalPrice;
         finalReturnString+="\n----------------------------------------------------";
-        finalReturnString+="\nSubtotal\t$"+totalValue;
-        double memberDiscountValue=(int)(totalValue*(memberDiscount/100)*1000)/1000.0;
-        finalReturnString+="\nMember Discount ("+memberDiscount+"%)\t-$"+memberDiscountValue;
+        finalReturnString+="\nSubtotal\t$"+String.format("%.2f", totalValue);
+        double memberDiscountValue=totalValue*memberDiscount/100.0;
+        finalReturnString+="\nMember Discount ("+memberDiscount+"%)\t-$"+String.format("%.2f", memberDiscountValue);
         totalValue-=memberDiscountValue;
-        double salesTaxValue=(int)(totalValue*(salesTaxPercentage/100)*1000)/1000.0;
-        finalReturnString+="\nTax ("+salesTaxPercentage+"%)\t$"+salesTaxValue;
+        double salesTaxValue=totalValue*salesTaxPercentage/100.0;
+        finalReturnString+="\nTax ("+salesTaxPercentage+"%)\t$"+String.format("%.2f", salesTaxValue);
         totalValue+=salesTaxValue;
-        totalValue=((int)totalValue*1000)/1000.0;
-        finalReturnString+="\nTOTAL\t$"+totalValue;
+        totalValue=(totalValue*1000)/1000.0;
+        finalReturnString+="\nTOTAL\t$"+String.format("%.2f", totalValue);
         finalReturnString+="\n====================================================";
         finalReturnString+="\nThank you, "+usernameInitials+" - enjoy "+movieTitle+"!";
         finalReturnString+="\n====================================================";
