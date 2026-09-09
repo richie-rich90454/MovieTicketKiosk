@@ -19,7 +19,7 @@ public class MovieTicketKiosk{
             System.out.print("What is the name of the movie: ");
             userRequirements.setMovieTitle(input.nextLine());
             userRequirements.generateBookingCodeAndSeatingAndMemberDiscount();
-            String currentSeat=(userRequirements.getSeat())[0]+", ";
+            String currentSeat=(userRequirements.getSeat())[0]+",";
             currentSeat+=(userRequirements.getSeat())[1];
             usedSeats.put(currentSeat, 1);
             System.out.println(userRequirements);
