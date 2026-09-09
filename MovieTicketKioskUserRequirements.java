@@ -50,7 +50,7 @@ public class MovieTicketKioskUserRequirements {
         }
         seat[0]=(int)(Math.random()*10+1);
         seat[1]=(int)(Math.random()*20+1);
-        while (usedSeats.get(seat[0]+", "+seat[1])==1){
+        while (usedSeats.getOrDefault(seat[0]+","+seat[1], 0)==1){
             seat[0]=(int)(Math.random()*10+1);
             seat[1]=(int)(Math.random()*20+1);
         }

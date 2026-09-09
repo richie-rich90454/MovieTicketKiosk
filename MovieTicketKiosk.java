@@ -5,7 +5,7 @@ public class MovieTicketKiosk{
         Scanner input=new Scanner(System.in);
         HashMap<String, Integer> usedSeats=new HashMap<String, Integer>();
         while(true){
-            System.out.println("Welcome to the Starlight Cinema Kiosk!\n");
+            System.out.println("\nWelcome to the Starlight Cinema Kiosk!\n");
             MovieTicketKioskUserRequirements userRequirements=new MovieTicketKioskUserRequirements(usedSeats);
             System.out.print("How many tickets do you want to purchase (it must be greater than 0; if the value is smaller than 0, it would be set as 0): ");
             userRequirements.setTicketCount(input.nextInt());
