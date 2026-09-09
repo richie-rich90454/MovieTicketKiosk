@@ -14,12 +14,21 @@ public class MovieTicketKioskUserRequirements {
     private double memberDiscount;
     public void setTicketCount(int ticketCount){
         this.ticketCount=ticketCount;
+        if (ticketCount<=0){
+            this.ticketCount=0;
+        }
     }
     public void setPopcornCount(int popcornCount){
         this.popcornCount=popcornCount;
+        if (popcornCount<=0){
+            this.popcornCount=0;
+        }
     }
     public void setDrinkCount(int drinkCount){
         this.drinkCount=drinkCount;
+        if (drinkCount<=0){
+            this.drinkCount=0;
+        }
     }
     public void setUsername(String username){
         this.username=username;
@@ -38,7 +47,7 @@ public class MovieTicketKioskUserRequirements {
         }
         seat[0]=(int)(Math.random()*10+1);
         seat[1]=(int)(Math.random()*20+1);
-        memberDiscount=(int)((Math.random()*10+5)*1000)/1000.0;
+        memberDiscount=(int)((Math.random()*10+5)*100)/100.0;
     }
     public String toString(){
         String finalReturnString="\n\n\n-----------------------------------------------\nSTARLIGHT CINEMA MOVIE TICKET\n\n\n";
