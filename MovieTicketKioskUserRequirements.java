@@ -41,7 +41,7 @@ public class MovieTicketKioskUserRequirements {
         memberDiscount=(int)((Math.random()*10+5)*1000)/1000.0;
     }
     public String toString(){
-        String finalReturnString="\n\n\nSTARLIGHT CINEMA MOVIE TICKET\n\n";
+        String finalReturnString="\n\n\n-----------------------------------------------\nSTARLIGHT CINEMA MOVIE TICKET\n\n\n";
         finalReturnString+="Booking Code: "+bookingCode;
         finalReturnString+="\nCustomer: "+username+" ("+usernameInitials+")";
         finalReturnString+="\nMovie: "+movieTitle;
@@ -60,6 +60,7 @@ public class MovieTicketKioskUserRequirements {
         totalValue+=salesTaxValue;
         totalValue=((int)totalValue*1000)/1000.0;
         finalReturnString+="\nTOTAL\t"+totalValue;
+        finalReturnString+="\n-----------------------------------------------";
         finalReturnString+="\n\nThank you, "+usernameInitials+" - enjoy "+movieTitle+"!";
         return finalReturnString;
     }
