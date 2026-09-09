@@ -11,7 +11,7 @@ public class MovieTicketKioskUserRequirements {
     private final double popcornPrice=6.75;
     private final double drinkPrice=4.25;
     private final double salesTaxPercentage=8.25;
-    private double memberDiscount;
+    private int memberDiscount;
     public void setTicketCount(int ticketCount){
         this.ticketCount=ticketCount;
         if (ticketCount<=0){
@@ -47,7 +47,7 @@ public class MovieTicketKioskUserRequirements {
         }
         seat[0]=(int)(Math.random()*10+1);
         seat[1]=(int)(Math.random()*20+1);
-        memberDiscount=(int)((Math.random()*10+5)*100)/100.0;
+        memberDiscount=(int)(Math.random()*11)+5;
     }
     public String toString(){
         String finalReturnString="\n====================================================\nSTARLIGHT CINEMA MOVIE TICKET\n====================================================\n";
