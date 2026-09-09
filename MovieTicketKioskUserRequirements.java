@@ -50,27 +50,33 @@ public class MovieTicketKioskUserRequirements {
         memberDiscount=(int)((Math.random()*10+5)*100)/100.0;
     }
     public String toString(){
-        String finalReturnString="\n\n\n-----------------------------------------------\nSTARLIGHT CINEMA MOVIE TICKET\n\n\n";
+        String finalReturnString="\n====================================================\nSTARLIGHT CINEMA MOVIE TICKET\n====================================================\n";
         finalReturnString+="Booking Code: "+bookingCode;
         finalReturnString+="\nCustomer: "+username+" ("+usernameInitials+")";
         finalReturnString+="\nMovie: "+movieTitle;
-        finalReturnString+="\nSeat: Row "+seat[0]+" Seat "+seat[1]+"\n\n";
+        finalReturnString+="\nSeat: Row "+seat[0]+" Seat "+seat[1]+"";
+        finalReturnString+="\n====================================================\n";
         finalReturnString+="ITEM\tQTY\tPRICE\tTOTAL";
-        finalReturnString+="\nTicket\t"+ticketCount+"\t"+ticketPrice+"\t"+(ticketPrice*ticketCount);
-        finalReturnString+="\nPopcorn\t"+popcornCount+"\t"+popcornPrice+"\t"+(popcornCount*popcornPrice);
-        finalReturnString+="\nDrink\t"+popcornCount+"\t"+drinkPrice+"\t"+(drinkCount*drinkPrice);
-        double totalValue=(ticketPrice*ticketCount)+(popcornCount*popcornPrice)+(drinkCount*drinkPrice);
-        finalReturnString+="\n\nSubtotal\t"+totalValue;
+        double ticketTotalPrice=((ticketPrice*ticketCount)*1000)/1000.0;
+        double popcornTotalPrice=((popcornCount*popcornPrice)*1000)/1000.0;
+        double drinkTotalPrice=((drinkCount*drinkPrice)*1000)/1000.0;
+        finalReturnString+="\nTicket\t"+ticketCount+"\t$"+ticketPrice+"\t$"+ticketTotalPrice;
+        finalReturnString+="\nPopcorn\t"+popcornCount+"\t$"+popcornPrice+"\t$"+popcornTotalPrice;
+        finalReturnString+="\nDrink\t"+popcornCount+"\t$"+drinkPrice+"\t$"+drinkTotalPrice;
+        double totalValue=((ticketTotalPrice+popcornTotalPrice+drinkTotalPrice)*1000)/1000.0;
+        finalReturnString+="\n----------------------------------------------------";
+        finalReturnString+="\nSubtotal\t$"+totalValue;
         double memberDiscountValue=(int)(totalValue*(memberDiscount/100)*1000)/1000.0;
-        finalReturnString+="\nMember Discount ("+memberDiscount+"%)\t-"+memberDiscountValue;
+        finalReturnString+="\nMember Discount ("+memberDiscount+"%)\t-$"+memberDiscountValue;
         totalValue-=memberDiscountValue;
         double salesTaxValue=(int)(totalValue*(salesTaxPercentage/100)*1000)/1000.0;
-        finalReturnString+="\nTax ("+salesTaxPercentage+"%)\t"+salesTaxValue;
+        finalReturnString+="\nTax ("+salesTaxPercentage+"%)\t$"+salesTaxValue;
         totalValue+=salesTaxValue;
         totalValue=((int)totalValue*1000)/1000.0;
-        finalReturnString+="\nTOTAL\t"+totalValue;
-        finalReturnString+="\n-----------------------------------------------";
-        finalReturnString+="\n\nThank you, "+usernameInitials+" - enjoy "+movieTitle+"!";
+        finalReturnString+="\nTOTAL\t$"+totalValue;
+        finalReturnString+="\n====================================================";
+        finalReturnString+="\nThank you, "+usernameInitials+" - enjoy "+movieTitle+"!";
+        finalReturnString+="\n====================================================";
         return finalReturnString;
     }
 }
