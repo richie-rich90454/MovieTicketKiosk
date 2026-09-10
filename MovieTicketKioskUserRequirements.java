@@ -75,10 +75,10 @@ public class MovieTicketKioskUserRequirements {
     //String.format() reference from https://www.w3schools.com/java/ref_string_format.asp only used in order to ensure the strict requirement of two decimal places
     public String toString(){
         String finalReturnString="\n====================================================\nSTARLIGHT CINEMA MOVIE TICKET\n====================================================\n";
-        finalReturnString+="Booking Code: "+bookingCode;
-        finalReturnString+="\nCustomer: "+username+" ("+usernameInitials+")";
-        finalReturnString+="\nMovie: "+movieTitle;
-        finalReturnString+="\nSeat: Row "+seat[0]+" Seat "+seat[1]+"";
+        finalReturnString+="Booking Code\t: "+bookingCode;
+        finalReturnString+="\nCustomer\t: "+username+" ("+usernameInitials+")";
+        finalReturnString+="\nMovie\t\t: "+movieTitle;
+        finalReturnString+="\nSeat\t\t: Row "+seat[0]+" Seat "+seat[1]+"";
         finalReturnString+="\n====================================================\n";
         finalReturnString+="ITEM\tQTY\tPRICE\tTOTAL";
         double ticketTotalPrice=ticketPrice*ticketCount;
