@@ -69,6 +69,9 @@ public class MovieTicketKioskUserRequirements {
     public int[] getSeat(){
         return seat;
     }
+    public String getMovieTitle(){
+        return movieTitle;
+    }
     public MovieTicketKioskUserRequirements(HashMap<String, Integer> usedSeats){
         this.usedSeats=usedSeats;
     }
