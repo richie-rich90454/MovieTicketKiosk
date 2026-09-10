@@ -1,7 +1,9 @@
 /*
     MovieTicketKiosk main runner file.
     A file that is created to create instances of the MovieTicketKioskUserRequirements class to process inputs and create ticket kiosk outputs with relevant and accurate information
-    Completed challenge one (no duplicated seats+infinite printing)
+
+    Completed challenge one (no duplicated seats+infinite printing) achieved via a non-ending while loop that is only terminated when the user enters false and a HashMap that stores the seats as a "row,seat" String to check for duplicates (using HashMap because it offers low time complexity lookup to avoid array iteration, as the former is O(1) while the latter is O(n)) to trigger a regeneration in the MovieTicketKioskUserRequirements class's generateBookingCodeAndSeatingAndMemberDiscount() method if the two are the same and only stops when they are different to prevent duplicated seats
+
     Richard Jiang
     2026/9/9
 
