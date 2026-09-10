@@ -37,7 +37,7 @@ public class MovieTicketKiosk{
             currentSeat+=(userRequirements.getSeat())[1];
             usedSeats.put(currentSeat, 1);
             System.out.println(userRequirements);
-            System.out.print("Enter true to continue: ");
+            System.out.print("\nEnter true to continue: ");
             boolean continueOrNot=input.nextBoolean();
             input.nextLine();
             if (!continueOrNot){
