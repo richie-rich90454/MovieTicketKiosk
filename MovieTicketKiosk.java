@@ -1,9 +1,14 @@
 /*
-    MovieTicketKiosk main runner file
+    MovieTicketKiosk main runner file.
     A file that is created to create instances of the MovieTicketKioskUserRequirements class to process inputs and create ticket kiosk outputs with relevant and accurate information
     Completed challenge one (no duplicated seats+infinite printing)
     Richard Jiang
     2026/9/9
+
+    jar build (reference from https://docs.oracle.com/javase/tutorial/deployment/jar/appman.html) with:
+        1. javac -d out *.java   (compiling all .java files as .class files)
+        2. jar cfe MovieTicketKiosk.jar MovieTicketKiosk -C out . (way to build an executable jar without Manifest.txt; referenced from https://docs.oracle.com/javase/tutorial/deployment/jar/appman.html and https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jar.html to make it build the entire out directory with cfe being create-file entrypoint, which is the main class, and set as MovieTicketKiosk's .class file)
+        3. java -jar MovieTicketKiosk.jar (run the compiled jar)
  */
 import java.util.HashMap;
 import java.util.Scanner;
