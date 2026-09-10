@@ -1,6 +1,7 @@
 /*
     MovieTicketKiosk main runner file
     A file that is created to create instances of the MovieTicketKioskUserRequirements class to process inputs and create ticket kiosk outputs with relevant and accurate information
+    Completed challenge one (no duplicated seats+infinite printing)
     Richard Jiang
     2026/9/9
  */
