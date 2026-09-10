@@ -96,7 +96,6 @@ public class MovieTicketKioskUserRequirements {
         double salesTaxValue=totalValue*salesTaxPercentage/100.0;
         finalReturnString+="\nTax ("+salesTaxPercentage+"%)\t\t$"+String.format("%.2f", salesTaxValue);
         totalValue+=salesTaxValue;
-        totalValue=(totalValue*1000)/1000.0;
         finalReturnString+="\nTOTAL\t\t\t$"+String.format("%.2f", totalValue);
         finalReturnString+="\n====================================================";
         finalReturnString+="\nThank you, "+usernameInitials+" - enjoy "+movieTitle+"!";
