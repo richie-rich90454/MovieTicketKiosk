@@ -16,7 +16,7 @@ public class MovieTicketKioskUserRequirements {
     private String movieTitle;
     private String bookingCode;
     private int[] seat=new int[2];//index 0 denoting row while index 1 denotes seat number
-    public String usernameInitials;
+    private String usernameInitials;
     private final double ticketPrice=12.50;
     private final double popcornPrice=6.75;
     private final double drinkPrice=4.25;
