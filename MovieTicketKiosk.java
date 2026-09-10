@@ -35,6 +35,7 @@ public class MovieTicketKiosk{
             userRequirements.generateBookingCodeAndSeatingAndMemberDiscount();
             String currentSeat=(userRequirements.getSeat())[0]+",";
             currentSeat+=(userRequirements.getSeat())[1];
+            currentSeat+=" in "+userRequirements.getMovieTitle();
             usedSeats.put(currentSeat, 1);
             System.out.println(userRequirements);
             System.out.print("\nEnter true to continue, or enter false to exit: ");
